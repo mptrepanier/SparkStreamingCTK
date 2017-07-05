@@ -14,9 +14,9 @@ $ tar -zxvf apache-ctakes-3.2.2-bin.tar.gz
 $ wget https://sourceforge.net/projects/ctakesresources/files/ctakes-resources-3.2.0.zip
 $ unzip ctakes-resources-3.2.0.zip
 $ cp -R resources/* apache-ctakes-3.2.2/resources
- * Download and install [ClinicalPipeline](https://github.com/giuseppetotaro/ctakes-clinical-pipeline). WARNING - This installation takes a LONG time. Go and make yourself a cup of tea!
-
 ```
+ * Download and install [ClinicalPipeline](https://github.com/giuseppetotaro/ctakes-clinical-pipeline). WARNING - This installation takes a LONG time. Go and make yourself a cup of tea!
+ 
 $ cd /usr/local
 $ git clone https://github.com/giuseppetotaro/ctakes-clinical-pipeline.git
 $ cd ctakes-clinical-pipeline
