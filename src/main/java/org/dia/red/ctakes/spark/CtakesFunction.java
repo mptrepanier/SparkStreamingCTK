@@ -63,8 +63,8 @@ public class CtakesFunction implements Function<String, String> {
 
 	private void setup() throws UIMAException {
 
-		System.setProperty("ctakes.umlsuser", "balahota1");
-		System.setProperty("ctakes.umlspw", "Ru$h@ccessUM!S");
+		System.setProperty("ctakes.umlsuser", "");
+		System.setProperty("ctakes.umlspw", "");
 		this.jcas = JCasFactory.createJCas();
 		this.aed = CTAKESClinicalPipelineFactory.getDefaultPipeline();
 
