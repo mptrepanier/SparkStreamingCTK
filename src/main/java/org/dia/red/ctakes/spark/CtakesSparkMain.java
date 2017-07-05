@@ -53,8 +53,6 @@ public class CtakesSparkMain {
         out.close();
         sc.close();
 
-
-
 	}
 
 }

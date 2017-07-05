@@ -35,11 +35,15 @@ import org.apache.ctakes.typesystem.type.textsem.*;
 import org.apache.uima.UIMAException;
 import org.apache.uima.cas.FSIndex;
 import org.apache.uima.cas.Type;
+
+import org.apache.uima.UIMAException;
+
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.cas.impl.XmiCasSerializer;
 import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
+
 import org.apache.uima.jcas.cas.FSArray;
 import org.apache.uima.util.XMLSerializer;
 import org.apache.spark.api.java.function.Function;
@@ -52,13 +56,13 @@ import org.json.*;
  *
  */
 
-
 public class CtakesFunction implements Function<String, String> {
 
 	transient JCas jcas = null;
 	transient AnalysisEngineDescription aed = null;
 
 	private void setup() throws UIMAException {
+
 		System.setProperty("ctakes.umlsuser", "balahota1");
 		System.setProperty("ctakes.umlspw", "Ru$h@ccessUM!S");
 		this.jcas = JCasFactory.createJCas();
@@ -134,6 +138,7 @@ public class CtakesFunction implements Function<String, String> {
 		allAnnotations.put("Annotations", annotationsArray);
 		this.jcas.reset();
 		return allAnnotations.toString();
+
 	}
 
 }
