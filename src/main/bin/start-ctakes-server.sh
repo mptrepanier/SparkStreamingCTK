@@ -22,6 +22,10 @@
 #fi
 # CTAKES_HOME=/usr/local/apache-ctakes-3.2.2/
 
+<<<<<<< HEAD
 CTAKES_HOME=/mnt/c/metistream/ctakes/apache-ctakes-3.2.2
+=======
+CTAKES_HOME=/mnt/d/metistream/ctakes-streaming/apache-ctakes-3.2.2
+>>>>>>> 676d6aa1378c778db9f9a6ce9815d35cfb95de9e
 CP="${CTAKES_HOME}/desc/:${CTAKES_HOME}/resources/:$( find $(dirname $0)/../lib ${CTAKES_HOME}/lib  -name "*.jar" | tr '\n' ':')"
 ${JAVA_HOME}/bin/java -cp ${CP} org.dia.red.ctakes.spark.CtakesSparkMain ${1}

@@ -38,20 +38,19 @@ import org.json.JSONObject;
  */
 public class CtakesSparkMain {
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) throws Exception {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws Exception {
 
 
-        SparkConf conf = new SparkConf().setAppName("ctakes").setMaster("local[*]");
+		SparkConf conf = new SparkConf().setAppName("ctakes");
         JavaSparkContext sc = new JavaSparkContext(conf);
-        System.out.println("This point reached at least...");
 
-        JavaRDD<String> lines = sc.textFile("/mnt/c/metistream/ctakes/SparkStreamingCTK/testdata100.txt").map(new CtakesFunction());
-        FSArray test;
+        JavaRDD<String> lines = sc.textFile("/mnt/d/metistream/ctakes-streaming/SparkStreamingCTK/testdata100.txt").map(new CtakesFunction());
+
         String first = lines.take(2).get(0);
-        PrintWriter out = new PrintWriter("/mnt/c/metistream/ctakes/SparkStreamingCTK/test_outputs/output.txt");
+        PrintWriter out = new PrintWriter("/mnt/d/metistream/ctakes-streaming/SparkStreamingCTK/test_outputs/output.txt");
         out.println(first);
         out.close();
         sc.close();
