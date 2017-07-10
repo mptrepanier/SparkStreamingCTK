@@ -23,11 +23,11 @@ the License.
     <version>0.1</version>
     <packaging>jar</packaging>
     <description>
-      A test to run ctakes at high-speed
+        A test to run ctakes at high-speed
     </description>
     <properties>
         <ctakes.version>3.2.2</ctakes.version>
-        <spark.version>1.4.1</spark.version>
+        <spark.version>2.0.1</spark.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -62,7 +62,6 @@ the License.
                 <role>committer</role>
             </roles>
         </developer>
-
     </developers>
     <build>
         <directory>target</directory>
@@ -83,39 +82,39 @@ the License.
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
-                  <archive>
-                    <manifest>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                    </manifest>
-                    <index>true</index>
-                  </archive>
+                    <archive>
+                        <manifest>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <index>true</index>
+                    </archive>
                 </configuration>
             </plugin>
             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-assembly-plugin</artifactId>
-              <version>2.5.4</version>
-              <configuration>
-                <descriptors>
-                  <descriptor>src/main/assembly/assembly.xml</descriptor>
-                  <descriptor>src/main/assembly/hadoop-job.xml</descriptor>
-                </descriptors>
-                <archive>
-                  <manifest>
-                    <mainClass>org.dia.red.ctakes.spark.CtakesSparkMain</mainClass>
-                  </manifest>
-                </archive>
-              </configuration>
-              <executions>
-                <execution>
-                  <id>make-assembly</id>
-                  <phase>package</phase>
-                  <goals>
-                    <goal>single</goal>
-                  </goals>
-                </execution>
-              </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.4</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                        <descriptor>src/main/assembly/hadoop-job.xml</descriptor>
+                    </descriptors>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.dia.red.ctakes.spark.CtakesSparkMain</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -146,39 +145,44 @@ the License.
                 </executions>
             </plugin>
         </plugins>
-     </build>
+    </build>
     <dependencies>
-      <dependency>
-        <groupId>org.scala-lang</groupId>
-        <artifactId>scala-library</artifactId>
-        <version>2.11.7</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-core_2.11</artifactId>
-        <version>${spark.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-streaming_2.11</artifactId>
-        <version>${spark.version}</version>
-      </dependency>
-      <dependency>
-      	<groupId>it.cnr.iac</groupId>
-      	<artifactId>ctakes-clinical-pipeline</artifactId>
-      	<version>0.0.1-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.ctakes</groupId>
-        <artifactId>ctakes-core</artifactId>
-        <version>${ctakes.version}</version>
-        <scope>provided</scope>
-        <exclusions>
-        	<exclusion>
-        	    <groupId>com.google.guava</groupId>
-        		<artifactId>guava</artifactId>
-        	</exclusion>
-        </exclusions>
-      </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>it.cnr.iac</groupId>
+            <artifactId>ctakes-clinical-pipeline</artifactId>
+            <version>0.0.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ctakes</groupId>
+            <artifactId>ctakes-core</artifactId>
+            <version>${ctakes.version}</version>
+            <!--scope>provided</scope-->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20170516</version>
+        </dependency>
     </dependencies>
 </project>
